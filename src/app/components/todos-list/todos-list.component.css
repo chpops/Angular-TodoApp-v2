@@ -1,0 +1,15 @@
+.todo {
+    padding-left: 0;
+}
+
+.todo li {
+    padding: 1em;
+    font-size: 18px;
+    list-style-type: none;
+    color: #0f2c3d;
+    display: block;
+}
+
+.todo li:not(:last-child) {
+    border-bottom: 1px solid #000;
+}
