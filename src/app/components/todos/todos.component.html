@@ -1,6 +1,15 @@
-<div class="create_new_todo">
-    <input type="text" class="message" placeholder="Введите задание" required>
-    <a href="" class="add">Добавить</a>
-</div>
+<form action="#" class="create_new_todo" (ngSubmit)="onCreate()">
+    <input type="text" name="title" class="message" placeholder="Введите задачу" [(ngModel)]="title">
+    <button [disabled]="!title" class="add">Добавить</button>
+</form>
 
-<app-todos-list></app-todos-list>
+<div class="todo_list">
+    <ul class="todo">
+        <li class="tasks" *ngFor="let todo of todoList">
+            <input class="test" type="checkbox" name="isCompleted" (change)="onComplete(todo)" [checked]="todo.isCompleted">
+            <span class="newgreen" *ngIf="!todo.isCompleted">{{ todo.title }}</span>
+            <span class="reddel" *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
+            <span class="delete" (click)="onRemove(todo)">Удалить</span>
+        </li>
+    </ul>
+</div>

@@ -1,8 +1,9 @@
 .message{
-    width: 376px;
-    padding: 10px;
-    margin-bottom: 10px;
-    
+    width: 500px;
+    padding: 12px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .add {
@@ -35,4 +36,35 @@
     border-color: #0da1f7;
     width: calc(100% - 14px);
     height: calc(100% + 14px);
+}
+
+.todo {
+    padding-left: 0;
+}
+
+.todo li {
+    padding: 20px;
+    font-size: 16px;
+    list-style-type: none;
+    color: #f72c2c;
+    display: block;
+}
+
+.todo li:not(:last-child) {
+    border-bottom: 1px solid #000;
+}
+
+.delete{
+    margin-left: 10%;
+}
+
+.reddel{
+    margin-left: 18px;
+    color: red;
+}
+
+.newgreen{
+    margin-left: 18px;
+    color: rgb(15, 180, 15);
+    font-weight: bold;
 }
