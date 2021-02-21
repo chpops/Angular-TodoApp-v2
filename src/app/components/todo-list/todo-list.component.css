@@ -1,0 +1,102 @@
+.todo {
+    padding-left: 0;
+}
+
+.todo li {
+    padding: 20px;
+    font-size: 18px;
+    list-style-type: none;
+    display: block;
+}
+
+.todo li:not(:last-child) {
+    border-bottom: 1px solid #000;
+}
+
+.delete{
+    text-align: right;
+    color: rgb(236, 193, 52);
+    font-size: 14px;
+}
+
+.reddel{
+    margin-left: 18px;
+    color: #fc1b0b;
+}
+
+.newgreen{
+    margin-left: 18px;
+    color: rgb(16, 51, 207);
+    font-weight: bold;
+}
+
+
+
+.message{
+    text-align: center;
+    height: 38px;
+    width: 536px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 16px 0px 16px 0px;
+    border-bottom: 3px solid #ff9307;
+    color: #313131;
+    font-size: 18px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+}
+
+.message:focus{
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.add {
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 10px 30px;
+    position: relative;
+    border: 2px solid #EB8A3E;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: .4s;
+    background-color: #ffe5cd;
+}
+
+.add:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: .4s;
+}
+
+.add:hover:after {
+    border-color: #EB8A3E;
+    width: calc(100% - 14px);
+    height: calc(100% + 14px);
+}
+
+.taskTitle{
+    text-align: center;
+}
+
+.tasks{
+    border-radius: 12px;
+    width: 655px;
+    height: 110px;
+    background-color: rgba(243, 115, 17, 0.575);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+

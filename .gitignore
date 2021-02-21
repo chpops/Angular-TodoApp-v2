@@ -71,3 +71,5 @@ tools/gulp-tasks/cldr/cldr-data/
 
 # Husky
 .husky/_
+
+src/env.ts

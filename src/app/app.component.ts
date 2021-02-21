@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoListComponent } from 'src/app/components/todo-list/todo-list.component'
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
+  public title = '';
+  
   ngOnInit(): void{ }
 }
