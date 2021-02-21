@@ -1,0 +1,25 @@
+<form action="#" class="create_new_todo" (ngSubmit)="onCreate()"> 
+    <div class="NewTaskForm">
+        <input type="text" name="title" class="message" placeholder="Enter New Task ..." [(ngModel)]="title">
+        <button [disabled]="!title" class="add">ADD</button>
+    </div>
+    
+    <div class="todo_list">
+        <ul class="todo">
+            <li class="tasks" *ngFor="let todo of todoList">
+                <div class="checkboxDone">
+                <input type="checkbox" name="isCompleted" (change)="onComplete(todo)" [checked]="todo.isCompleted">
+            </div>
+
+                <div class="taskTitle">
+                    <span class="newgreen" *ngIf="!todo.isCompleted">{{ todo.title }}</span>
+                    <span class="reddel" *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
+                </div>
+<br>
+                <div class="delete">
+                    <span (click)="onRemove(todo)">Delete</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>
