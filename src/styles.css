@@ -10,7 +10,6 @@ app-root {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
     color: #EB8A3E;
     text-transform: uppercase;
     font-family: -apple-system,
@@ -28,8 +27,8 @@ app-root {
   body {
     margin: 0;
     padding: 0;
-    background-image: url('../src/assets/background.jpg');
-
+    background-image: url('assets/background.jpg');
+    background-size: cover;
     background-position: top center;
   }
 

@@ -4,7 +4,7 @@
         <button [disabled]="!title" class="add">ADD</button>
     </div>
     
-    <div class="todo_list">
+    <!-- <div class="todo_list">
         <ul class="todo">
             <li class="tasks" *ngFor="let todo of todoList">
                 <div class="checkboxDone">
@@ -21,5 +21,34 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div> -->
+      
 </form>
+
+<div class="example-container">
+    <h2>To do</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>

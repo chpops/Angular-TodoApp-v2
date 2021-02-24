@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../todo';
 import { HttpClient } from '@angular/common/http';
-import { BACKEND_BASE_DOMAIN } from 'src/environments/env'
+import { BACKEND_BASE_DOMAIN } from 'src/environments/env';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-todo-list',
@@ -9,6 +11,17 @@ import { BACKEND_BASE_DOMAIN } from 'src/environments/env'
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Brush teeth',
+    'Take a shower',
+  ];
+
+  done = [
+    'Get up',
+  ];
+
   public title = '';
   public todoList : Todo[];
   private httpClient: HttpClient;
@@ -20,6 +33,17 @@ export class TodoListComponent implements OnInit {
       this.todoList = todoList;
     });
   }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    };
+  };
 
   onCreate(): void{
     if(this.title){
