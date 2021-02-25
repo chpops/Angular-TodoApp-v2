@@ -11,15 +11,24 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+  
   todo = [
     'Get to work',
     'Pick up groceries',
     'Brush teeth',
     'Take a shower',
+    'Buy eggs'
+  ];
+
+  processed = [
+    'Saw thing',
+    'Hit the gym',
+    'Read a book'
   ];
 
   done = [
     'Get up',
+    'Pay bills'
   ];
 
   public title = '';
@@ -32,7 +41,7 @@ export class TodoListComponent implements OnInit {
     .subscribe(todoList => {
       this.todoList = todoList;
     });
-  }
+  };
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -68,7 +77,7 @@ export class TodoListComponent implements OnInit {
     ).subscribe( (updateTodo: Todo) => {
       this.todoList = this.todoList.map(todo => todo.id !== updateTodo.id ? todo: updateTodo);
   });
-}
+};
 
   onRemove(todoOnDelete: Todo){
     this.httpClient.delete<void>(
@@ -76,4 +85,4 @@ export class TodoListComponent implements OnInit {
         this.todoList = this.todoList.filter(todo => todo.id !== todoOnDelete.id)
     });
   };
-}
+};

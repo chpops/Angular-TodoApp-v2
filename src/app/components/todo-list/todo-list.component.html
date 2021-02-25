@@ -1,54 +1,48 @@
 <form action="#" class="create_new_todo" (ngSubmit)="onCreate()"> 
     <div class="NewTaskForm">
-        <input type="text" name="title" class="message" placeholder="Enter New Task ..." [(ngModel)]="title">
-        <button [disabled]="!title" class="add">ADD</button>
+        <input type="text" name="title" class="message" placeholder="Enter Your New Task Here ..." [(ngModel)]="title">
+        <button [disabled]="!title" class="add">ENTER</button>
+    </div>
+      
+    <div class="todo-container">
+        <h2>To do</h2>
+      
+        <div
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="todo"
+          [cdkDropListConnectedTo]="[processedList, doneList]"
+          class="todo-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="todo-box" *ngFor="let item of todo" cdkDrag>{{item}} <span style="font-size: 15px; color: rgba(255, 0, 0, 0.747);" (click)="onRemove(todo)">dell</span></div>
+        </div>
     </div>
     
-    <!-- <div class="todo_list">
-        <ul class="todo">
-            <li class="tasks" *ngFor="let todo of todoList">
-                <div class="checkboxDone">
-                <input type="checkbox" name="isCompleted" (change)="onComplete(todo)" [checked]="todo.isCompleted">
-            </div>
-
-                <div class="taskTitle">
-                    <span class="newgreen" *ngIf="!todo.isCompleted">{{ todo.title }}</span>
-                    <span class="reddel" *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
-                </div>
-<br>
-                <div class="delete">
-                    <span (click)="onRemove(todo)">Delete</span>
-                </div>
-            </li>
-        </ul>
-    </div> -->
-      
+    <div class="processed-container">
+        <h2>Processed</h2>
+    
+        <div
+            cdkDropList
+            #processedList="cdkDropList"
+            [cdkDropListData]="processed"
+            [cdkDropListConnectedTo]="[todoList, doneList]"
+            class="processed-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="processed-box" *ngFor="let item of processed" cdkDrag>{{item}} <span style="font-size: 15px; color: rgba(255, 0, 0, 0.747);" (click)="onRemove(todo)">dell</span></div>
+        </div>
+    </div>
+    
+    <div class="done-container">
+        <h2>DONE</h2>
+        
+        <div
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="done"
+            [cdkDropListConnectedTo]="[todoList, processedList]"
+            class="done-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="done-box" *ngFor="let item of done" cdkDrag>{{item}} <span style="font-size: 15px; color: rgba(255, 0, 0, 0.747);" (click)="onRemove(todo)">dell</span></div>
+        </div>
+    </div>
 </form>
-
-<div class="example-container">
-    <h2>To do</h2>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-    </div>
-  </div>
-
-  <div class="example-container">
-    <h2>Done</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-    </div>
-  </div>
